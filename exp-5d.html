@@ -5,7 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 5</title>
-    <script src="script.js"></script>
+    <script src="script.js">
+        function convert() {
+    var amt = parseFloat(document.getElementById("amt").value);
+    var from = document.getElementById("from").value;
+    var to = document.getElementById("to").value;
+    var ans = document.getElementById("answer");
+ 
+    var toINR = 79.97;
+    var toUSD = 0.013;
+    var result;
+    
+    if (from == to) result = amt;
+    else if (from == "USD") result = amt*toINR;
+    else result = amt*toUSD;
+    
+    //alert(result);
+    ans.innerHTML = amt.toString() + " " + from + " = " + result.toString() + " " + to + "!";
+}
+    </script>
     <link rel="shortcut icon" href="media/icon.ico" type="image/x-icon">
 </head>
 <body>
