@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 5f</title>
+    <link rel="shortcut icon" href="media/icon.ico" type="image/x-icon">
+</head>
+<body>
+    <fieldset>
+        <legend><h1>Birthday Cake Order Form</h1></legend>
+        # 1/2kg Cakes:&nbsp; <input type="text" id="small"><br><br> 
+        # 1kg Cakes:&nbsp; <input type="text" id="medium"><br><br>
+        # 2kg Cakes:&nbsp; <input type="text" id="large"><br><br> 
+        Tip: 
+        <label><input type="radio" value="10" name="tip">10%</label> 
+        <label><input type="radio" value="15" name="tip" checked="checked">15%</label>
+        <label><input type="radio" value="20" name="tip">20%</label><br><br> 
+        <button id="submit" onclick="bill()">Calculate price</button><br><br>
+        <span id="price"></span><br><br>
+    </fieldset>
+    <script>
+        function bill() {
+            var half = parseInt(document.getElementById("small").value);
+            var one = parseInt(document.getElementById("medium").value);
+            var two = parseInt(document.getElementById("large").value);
+            var total;
+            var small = 100;
+            var medium = 200;
+            var large = 400;
+            total = (half*small) + (one*medium) + (two*large);
+            var tax = 0.09 * total;
+            total += tax;
+
+            var radio = document.getElementsByName("tip");
+            var tip;
+            for (var i = 0; i < radio.length; i++) {
+                if (radio[i].checked) tip = ((radio[i].value)/100)*total;
+            }
+            total += tip;
+            document.getElementById("price").innerHTML = "Cost of order: " + total + " rupees!"
+        }
+
+
+    </script>
+</body>
+</html>
