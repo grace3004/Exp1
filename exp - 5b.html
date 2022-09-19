@@ -5,7 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 5</title>
-    <script src="script.js"></script>
+    <script src="script.js">
+        function bmi() {
+    var h = parseFloat(document.getElementById("height").value)/100;
+    var w = parseFloat(document.getElementById("weight").value);
+ 
+    var bmi = w / (h * h);
+    var result;
+ 
+    if (bmi < 18) result = "Underweight";
+    else if (bmi >= 18 && bmi < 25) result = "Normal";
+    else if (bmi >= 25 && bmi < 30) result = "Overweight";
+    else result = "Obese";
+ 
+    document.getElementById("bmi").innerHTML = "BMI: " + bmi.toPrecision(4);
+    document.getElementById("result").innerHTML = "Result: You are " + result + "!";
+}
+    </script>
     <link rel="shortcut icon" href="media/icon.ico" type="image/x-icon">
 </head>
 <body>
