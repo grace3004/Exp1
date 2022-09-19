@@ -5,7 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercise 5</title>
-    <script src="script.js"></script>
+    <script src="script.js">
+        function grow() {
+    var r = parseInt(document.getElementById("rows").value);
+    var c = parseInt(document.getElementById("cols").value);
+    var l = ["media/apple.png", "media/orange.png"];
+    //document.getElementById("garden").innerHTML = null;
+    var garden = document.getElementById("garden");
+    
+    for (let i = 0; i < r; i++) {
+        for (let j = 0; j < c; j++) {
+            var fruit = Math.floor(Math.random() * 2);
+            var img = '<img src=' + l[fruit] + ' width = "150px" height = "150px"></img>';
+            garden.innerHTML += img;
+        }garden.innerHTML += "<br>";
+    }
+}
+    </script>
     <link rel="shortcut icon" href="media/icon.ico" type="image/x-icon">
     
 </head>
